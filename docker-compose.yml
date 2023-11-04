@@ -5,7 +5,7 @@ services:
 
   GestionStationSki:
     container_name: gestionStationSki
-    build: ./
+    restart: on-failure
     ports:
       - "8089:8089"
     hostname: gestionStationSki
@@ -13,7 +13,9 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_4:3306/stationSki?createDatabaseIfNotExist=true&useUnicode=true
       - spring.datasource.username=root
       - spring.datasource.password=root
-    image: "projetdevops/projet"
+    image: ahmedbhd9/gestion-station-ski-1.0
+    stdin_open: true
+    tty: true
     depends_on:
       - docker-mysql_4
 
@@ -21,8 +23,13 @@ services:
 
   docker-mysql_4:
     container_name: mysql4
+    restart: unless-stopped
     image: mariadb:10.4.21
     environment:
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - "3307:3306"
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
