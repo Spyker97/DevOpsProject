@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
 class RegistrationServiceTests {
     @InjectMocks
     private RegistrationServicesImpl registrationService;
