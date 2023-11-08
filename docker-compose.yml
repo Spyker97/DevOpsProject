@@ -4,16 +4,16 @@ services:
 
 
   GestionStationSki:
-    container_name: gestionStationSki
+    container_name: gestionStationSk
     restart: on-failure
     ports:
       - "8089:8089"
-    hostname: gestionStationSki
+    hostname: gestionStationSk
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_4:3306/stationSki?createDatabaseIfNotExist=true&useUnicode=true
       - spring.datasource.username=root
       - spring.datasource.password=root
-    image: eyahenchiri/gestion-station-ski-1.0
+    image: eyahenchiri/gestion-station-sk-1.0
     stdin_open: true
     tty: true
     depends_on:
