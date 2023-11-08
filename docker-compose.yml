@@ -33,11 +33,13 @@ services:
       - db:/var/lib/mysql
 
   react:
-    container_name: frontReact
+    build: ./FrontEnd-micro-master
     restart: on-failure
     ports:
       - "8099:8099"
-    image: ahmedbhd9/frontReact
+    image: reactt
+    stdin_open: true
+    tty: true
     command: npm start
 
 
