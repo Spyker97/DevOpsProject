@@ -31,5 +31,14 @@ services:
       - "3307:3306"
     volumes:
       - db:/var/lib/mysql
+
+  react:
+    build: ./FrontEnd-micro-master
+    ports:
+      - "3030:3000"
+    image: "react"
+    command: npm start
+
+
 volumes:
   db:

@@ -48,4 +48,13 @@ public class InstructorServicesImpl implements IInstructorServices{
     }
 
 
+    public String deleteFournisseur(Long id) {
+        if (instructorRepository.findById(id).isPresent()) {
+            instructorRepository.deleteById(id);
+            return " Fournisseur Supprimé ";
+        }else
+            return "candidat non supprimé";
+    }
+
+
 }
