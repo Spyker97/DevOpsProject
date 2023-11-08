@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+
+
+  GestionStationSki:
+    container_name: gestionStationSki
+    restart: on-failure
+    ports:
+      - "8089:8089"
+    hostname: gestionStationSki
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://docker-mysql_4:3306/stationSki?createDatabaseIfNotExist=true&useUnicode=true
+      - spring.datasource.username=root
+      - spring.datasource.password=root
+    image: eyahenchiri/gestion-station-ski-1.0
+    stdin_open: true
+    tty: true
+    depends_on:
+      - docker-mysql_4
+
+
+
+  docker-mysql_4:
+    container_name: mysql4
+    restart: unless-stopped
+    image: mariadb:10.4.21
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3307:3306"
+    volumes:
+      - db:/var/lib/mysql
+
+  react:
+    build: ./FrontEnd-micro-master
+    restart: on-failure
+    ports:
+      - "8099:8099"
+    image: reactt
+    stdin_open: true
+    tty: true
+    command: npm start
+
+
+volumes:
+  db:
