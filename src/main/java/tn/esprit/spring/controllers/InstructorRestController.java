@@ -11,6 +11,7 @@ import java.util.List;
 
 @Tag(name = "\uD83D\uDC69\u200D\uD83C\uDFEB Instructor Management")
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping("/instructor")
 @RequiredArgsConstructor
 public class InstructorRestController {
