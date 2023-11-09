@@ -36,7 +36,7 @@ services:
     image: ahmedbhd9/reactapp1.0.0
     restart: on-failure
     ports:
-      - 8099:8099
+      - 3000:3000
     command: npm start
 
 
