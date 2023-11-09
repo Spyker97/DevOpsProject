@@ -32,14 +32,11 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-  react:
-    build: ./FrontEnd-micro-master
+  react-app:
+    image: ahmedbhd9/reactapp1.0.0
     restart: on-failure
     ports:
-      - "8099:8099"
-    image: reactt
-    stdin_open: true
-    tty: true
+      - 8099:8099
     command: npm start
 
 
