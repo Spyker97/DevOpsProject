@@ -1,3 +1,0 @@
-- Dashboard app doc
-- Package files and folder
-- css, fonts, images, js, index.html
